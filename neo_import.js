@@ -5,7 +5,7 @@ var es         = require("event-stream");
 var map        = require('map-stream');
 var vinyl      = require('vinyl-fs');
 
-var NeoRestful = require('lib/neo4j-cypher');
+var NeoRestful = require('./lib/neo4j-cypher');
 
 var neo = NeoRestful().server("http://localhost:7474");
 function neoLogError(err,res) {
