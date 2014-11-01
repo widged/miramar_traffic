@@ -76,16 +76,29 @@ Start Neo4j
   * MacOS & Linux: open a terminal, cd to the extracted folder, start with bin/neo4j start
   * Open http://localhost:7474 in a browser window.
 
-### Querying the data
+### Explore Neo4j without installing anything 
 
-A few queries to try
+Try out the console:
+  * http://neo4j-console-20.herokuapp.com/
 
-Traffic information at a given intersection.
+Fork and write your interactive queries published as Gists
+  * http://gist.neo4j.org/
+  * community challenges: [First Challenge](http://neo4j.com/blog/the-first-graphgist-challenge-completed/), [Winter Challenge](http://neo4j.com/blog/graph-gist-winter-challenge-winners/)
+  * Video on how to [Model Neo4j Graphs Interactively with a GraphGist](http://vimeo.com/81146271)
+
+
+## A few queries to try
+
+### List all intersections
+
+MATCH (m:intersection) RETURN DISTINCT m.name
+
+### Traffic information at a given intersection.
 
 
 ``` shell
    
-   MATCH (n {id: '504'})-[r]->(m)  RETURN DISTINCT n.id AS start, m.id as end,  SUM(r.count)
+MATCH (n {name: '504'})-[r]->(m)  RETURN DISTINCT n.name AS start, m.name as end,  SUM(r.count)
 
 ```
 
@@ -95,5 +108,21 @@ Traffic information at a given intersection.
 | 504 | 016 | 34864 |
 | 504 | 004 | 1320 |
 | 504 | 003 | 16019 |
+
+
+### Journey time between two intersections
+
+``` shell
+   
+MATCH (a:intersection { name:"504" }),(b:intersection { name:"002" }),
+  p = shortestPath((a)-[*..3]->(b))
+RETURN EXTRACT(x IN nodes(p) | x.name), REDUCE(totalTime=0, n IN relationships(p)| totalTime + n.std_journey_time) as totalTime
+
+
+```
+
+
+MATCH p=(a:intersection { name:"504" })-[*..1]-(b:intersection { name:"003" })
+RETURN EXTRACT(x IN nodes(p) | x.name) as intersections, SUM(REDUCE(totalTime=0, n IN relationships(p)| totalTime + n.journey_time)) as total_journey_time LIMIT 10
 
 
