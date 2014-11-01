@@ -61,7 +61,7 @@ Requires
   * An install of neo4j-community-2.1.5 in the `miramar_traffic` directory. 
 
 
-##  Installing Neo4j Community version
+###  Installing Neo4j Community version
 
 Got Java? You’ll need either Oracle JDK 7 or OpenJDK 7 
   * MacOS: do not be fooled by Apple’s offer to install Java 6. That won’t work. 
@@ -75,3 +75,25 @@ Start Neo4j
   * Windows: run the installer. Double-click and enjoy.
   * MacOS & Linux: open a terminal, cd to the extracted folder, start with bin/neo4j start
   * Open http://localhost:7474 in a browser window.
+
+### Querying the data
+
+A few queries to try
+
+Traffic information at a given intersection.
+
+
+``` shell
+   
+   MATCH (n {id: '504'})-[r]->(m)  RETURN DISTINCT n.id AS start, m.id as end,  SUM(r.count)
+
+```
+
+| start | end | SUM(r.count) |
+|:-----:|:---:| -----------:| 
+| 504 | 013 | 1518 |
+| 504 | 016 | 34864 |
+| 504 | 004 | 1320 |
+| 504 | 003 | 16019 |
+
+
