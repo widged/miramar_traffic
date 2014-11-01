@@ -1,0 +1,43 @@
+{
+  "name": "miramar_traffic",
+  "version": "0.0.0",
+  "description": "Code for traffic Analysis. Developed at the @HackMiramar event on Nov 1.",
+  "main": "sensor_stream.js",
+  "dependencies": {
+    "csv-streamify": "~1.0.0",
+    "event-stream": "~3.1.7",
+    "map-stream": "~0.1.0",
+    "neo4j-cypher": "~0.1.0",
+    "through": "~2.3.6",
+    "through2": "~0.5.1",
+    "eventemitter2": "~0.4.14",
+    "vinyl-fs": "~0.3.10"
+  },
+  "devDependencies": {
+    "event-stream": "~3.1.7",
+    "map-stream": "~0.1.0",
+    "through": "~2.3.6",
+    "through2": "~0.5.1",
+    "vinyl-fs": "~0.3.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "parse": "./sensor_stream.js",
+    "neo": "./cypher_import.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/widged/miramar_traffic"
+  },
+  "keywords": [
+    "stream",
+    "traffic",
+    "parsing",
+    "neo4j"
+  ],
+  "author": "Marielle Lange",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/widged/miramar_traffic/issues"
+  }
+}

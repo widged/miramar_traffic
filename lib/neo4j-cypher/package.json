@@ -1,0 +1,34 @@
+{
+  "name": "neo4j-cypher",
+  "version": "0.1.0",
+  "main": "./lib/neo4j-cypher.js",
+  "description": "command line or socket based interaction with neo4j using cypher queries",
+  "keywords": [
+    "neo4j",
+    "cypher",
+    "rest"
+  ],
+  "author": {
+    "name": "Marielle Lange",
+    "url": "http://www.widged.com"
+  },
+  "directories": {
+    "lib": "."
+  },
+  "engines": {
+    "node": ">= 0.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "request": "~2.27.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.2.0"
+  },
+  "dist": {
+    "shasum": "905a26099e62bd7aa0ebbd66ad668e8e7b7d2925"
+  },
+  "_resolved": "git+ssh://git@codebasehq.com:widged/veggie/neo4j-cypher#58f4a390883ef761433083b0d11e4ec69321fac7"
+}
