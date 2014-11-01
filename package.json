@@ -23,7 +23,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "parse": "./sensor_stream.js",
-    "neo": "./cypher_import.js"
+    "neo_import": "./neo_import.js",
+    "neo_start": "./neo4j-community-2.1.5/bin/neo4j start",
+    "neo_stop": "./neo4j-community-2.1.5/bin/neo4j stop"
   },
   "repository": {
     "type": "git",
